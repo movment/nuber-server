@@ -16,13 +16,13 @@ const resolvers: Resolvers = {
       ): Promise<EditPlaceResponse> => {
         const user: User = req.user;
         try {
-          const place = await Place.findOne(
-            { id: args.placeId },
-            { relations: ['user'] },
-          );
+          const place = await Place.findOne({ id: args.placeId });
           if (place) {
             if (place.userId === user.id) {
-              const notNull = cleanNullArgs(args);
+              const notNull: any = cleanNullArgs(args);
+              if (notNull.placeId !== null) {
+                delete notNull.placeId;
+              }
               await Place.update({ id: args.placeId }, { ...notNull });
               return {
                 ok: true,
@@ -50,5 +50,4 @@ const resolvers: Resolvers = {
     ),
   },
 };
-
 export default resolvers;

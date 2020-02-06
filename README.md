@@ -2,35 +2,51 @@
 
 Server for the (N)Uber Clone Course on Nomad Academy. GraphQL, Typescript, NodeJS
 
-## Public Resolvers:
+[Learn how to make this](https://academy.nomadcoders.co/p/nuber-fullstack-javascript-graphql-course/)
 
-- [ ] Sign In / Sign Up with Facebook
-- [ ] Sign In with Email
-- [ ] Start Phone Number Verification
-- [ ] Complete Phone Number Verification
-- [ ] Sign Up with Email
+## Resolvers
+
+### Public Resolvers:
+
+- [x] Sign In / Sign Up with Facebook
+- [x] Sign In with Email
+- [x] Start Phone Number Verification
+- [x] Complete Phone Number Verification
+- [x] Sign Up with Email
 
 ---
 
-## Private Resolvers:
+### Authentication:
 
-- [ ] Verify Email
-- [ ] Get my Profile
-- [ ] Update my Profile
-- [ ] Toggle Driving Mode
-- [ ] Report Location / Orientation
-- [ ] Add Place
-- [ ] Edit Place
-- [ ] Delete Place
+- [x] Generate JWT
+- [x] Verifiy JWT
+
+---
+
+### Private Resolvers:
+
+- [x] Get my Profile
+- [x] Request Email Verification
+- [x] Complete Email Verification
+- [x] Update my Profile
+- [x] Toggle Driving Mode
+- [x] Report Location / Orientation
+- [x] Add Place
+- [x] Edit Place
+- [x] Delete Place
+- [ ] Get My Places
 - [ ] See Nearby Drivers
 - [ ] Subscribe to Nearby Drivers
 - [ ] Request a Ride
 - [ ] Get Nearby Ride Requests
 - [ ] Subscribe to Nearby Ride Requests
-- [ ] Subscribe to Ride Satus
+- [ ] Update Ride Status
+- [ ] Get Ride
+- [ ] Subscribe to Ride Status
+- [ ] Create a Chat Room
 - [ ] Get Chat Room Messages
-- [ ] Subscribe to Chat Room Messages
 - [ ] Send a Chat Message
+- [ ] Subscribe to Chat Room Messages
 
 ## Code Challenge
 

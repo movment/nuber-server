@@ -1,5 +1,3 @@
-import bcrypt from 'bcrypt';
-import { IsEmail } from 'class-validator';
 import {
   BaseEntity,
   BeforeInsert,
@@ -12,9 +10,13 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
+
 import Chat from './Chat';
+import { IsEmail } from 'class-validator';
 import Message from './Message';
+import Place from './Place';
 import Ride from './Ride';
+import bcrypt from 'bcrypt';
 
 const BCRYPT_ROUNDS = 10;
 
@@ -95,6 +97,11 @@ class User extends BaseEntity {
   )
   ridesAsDriver: Ride[];
 
+  @OneToMany(
+    (type) => Place,
+    (place) => place.user,
+  )
+  places: Place[];
   @CreateDateColumn() createdAt: string;
 
   @UpdateDateColumn() updatedAt: string;

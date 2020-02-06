@@ -1,10 +1,11 @@
-import cors from 'cors';
 import { NextFunction, Response } from 'express';
+
 import { GraphQLServer } from 'graphql-yoga';
+import cors from 'cors';
+import decodeJWT from './utils/decodeJWT';
 import helmet from 'helmet';
 import logger from 'morgan';
 import schema from './schema';
-import decodeJWT from './utils/decodeJWT';
 
 class App {
   public app: GraphQLServer;

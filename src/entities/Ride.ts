@@ -6,9 +6,12 @@ import {
   ManyToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
+  OneToOne,
+  JoinColumn,
 } from 'typeorm';
 import { rideStatus } from '../types/types';
 import User from './User';
+import Chat from './Chat';
 
 @Entity()
 class Ride extends BaseEntity {
@@ -17,7 +20,7 @@ class Ride extends BaseEntity {
   @Column({
     type: 'text',
     enum: ['ACCEPTED', 'FINISHED', 'CANCELED', 'REQUESTING', 'ONROUTE'],
-    default: 'ACCEPTED',
+    default: 'REQUESTING',
   })
   status: rideStatus;
   @Column({ type: 'text' })
@@ -39,11 +42,27 @@ class Ride extends BaseEntity {
   @Column({ type: 'text' })
   distance: string;
 
+  @Column({ nullable: true })
+  passengerId: number;
+  @Column({ nullable: true })
+  driverId: number;
+
+  @Column({ nullable: true })
+  chatId: number;
+
   @ManyToOne(
     (type) => User,
     (user) => user.ridesAsPassenger,
   )
   passenger: User;
+
+  @OneToOne(
+    (type) => Chat,
+    (chat) => chat.ride,
+    { nullable: true },
+  )
+  @JoinColumn()
+  chat: Chat;
 
   @ManyToOne(
     (type) => User,

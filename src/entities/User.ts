@@ -5,7 +5,6 @@ import {
   Column,
   CreateDateColumn,
   Entity,
-  ManyToOne,
   OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
@@ -79,11 +78,16 @@ class User extends BaseEntity {
   )
   messages: Message[];
 
-  @ManyToOne(
+  @OneToMany(
     (type) => Chat,
-    (chat) => chat.participants,
+    (chat) => chat.passenger,
   )
-  chat: Chat;
+  chatsAsPassenger: Chat[];
+  @OneToMany(
+    (type) => Chat,
+    (chat) => chat.driver,
+  )
+  chatsAsDriver: Chat[];
 
   @OneToMany(
     (type) => Ride,

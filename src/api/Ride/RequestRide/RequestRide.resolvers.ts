@@ -16,7 +16,7 @@ const resolvers: Resolvers = {
         { req, pubSub },
       ): Promise<RequestRideResponse> => {
         const user: User = req.user;
-        if (!user.isRiding) {
+        if (!user.isRiding && !user.isDriving) {
           try {
             const ride: any = await Ride.create({
               ...args,
